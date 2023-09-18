@@ -8,16 +8,16 @@ class Counter extends Component {
 		tags: [`tag1`, `tag2`, `tag3`]
 	}
 
-	formatCount =()=>{
+	formatCount = () => {
 		const {count} = this.state
-		return count === 0 ? 'Zero' : this.state.count
+		return count === 0 ? 'Zero' : count
 	}
-	handleClick = () => {
+	handleClick = product => {
 		this.setState({count: this.state.count +1})
 		console.log("Clicked")
 	}
 
-	render(){
+	render = () => {
 		const {imgUrl, tags} = this.state
 
 		let classes = this.getBadgeClasses();
@@ -27,7 +27,7 @@ class Counter extends Component {
 				<img src={imgUrl} alt=""/>
 				<span className={classes}>{this.formatCount()}</span>
 				<button
-					onClick={this.handleClick}
+					onClick={() => this.handleClick(product)}
 					className='btn btn-secondary btn-sm'>
 					Increment
 				</button>
